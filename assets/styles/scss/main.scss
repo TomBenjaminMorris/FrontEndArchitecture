@@ -1,0 +1,86 @@
+@import "variables";
+@import "mixins";
+@import "fonts";
+@import "buttons";
+@import "header";
+@import "sbg-fa-flex";
+@import "sbg-fa-grid";
+@import "sbg-fa-modal";
+@import "sbg-fa-timeline";
+@import "footer";
+
+html {
+    font-family: $SkyRegular;
+    overflow: hidden;
+    overflow-y: auto;
+}
+
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+a {
+    color: $color--light;
+
+    &:hover {
+        color: #ffffff;
+    }
+}
+
+.icon {
+    border-color: rgba(255,255,255, 0.35);
+    color: white;
+    display: inline-block;
+    border: solid 1px;
+    border-radius: 100%;
+    text-decoration: none;
+    position: relative;
+
+    &:before {
+        display: block;
+        font-size: 1.25em;
+        width: 2em;
+        height: 2em;
+        text-align: center;
+        line-height: 2em;
+    }
+}
+
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    overflow-y: auto;
+
+    background-attachment: fixed;
+    background-color: $color--light;
+    background-image: url('../img/noise.png'), url('../img/bg-site.jpg');
+    background-repeat: repeat, repeat-x;
+    background-size: 128px 128px, cover;
+    padding: 0;
+    margin: 0;
+
+    &.modal-open {
+        overflow-y: hidden;
+    }
+}
+
+main {
+    flex: flex;
+    flex-grow:1;
+    width: 100%;
+    margin: 0 auto;
+}
+
+footer {
+    color: white;
+    position: relative;
+}

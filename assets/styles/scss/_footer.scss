@@ -1,0 +1,44 @@
+.page-foot {
+    background-image: url('../img/noise.png'),
+                      linear-gradient(45deg, rgba(114, 97, 147, 0.25) 25%, rgba(227, 123, 124, 0.25) 50%, rgba(255, 228, 180, 0.25));
+    background-size: 128px 128px, auto;
+    background-color: $color--primary;
+
+    &__content {
+        padding: 1rem 0 0;
+        display: flex;
+        flex-wrap: wrap;
+        @include fixed-width-limit();
+    }
+
+    section {
+        flex-grow: 1;
+        flex-shrink: 1;
+        flex-basis: 500px;
+        text-align: center;
+        padding-top: 2rem;
+        @include site-gutter();
+    }
+
+    ul.icons {
+        list-style: none;
+        padding-left: 0;
+        margin: 0 0 2rem 0;
+
+        li {
+            display: inline-block;
+            padding: 0 0.65rem 0 0;
+        }
+
+        .label {
+            display: none;
+        }
+    }
+
+    .copyright {
+        width: 100%;
+        margin: 2.5rem 0 2rem 0;
+        font-size: 0.8rem;
+        text-align: center;
+    }
+}

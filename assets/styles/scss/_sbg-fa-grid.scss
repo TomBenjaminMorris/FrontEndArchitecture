@@ -1,0 +1,94 @@
+.sbg-fa-grid {
+    background: url('../img/noise.png'),
+                linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%),
+                radial-gradient(ellipse at center, rgba(0,0,0,0) 0%, rgba(0,0,0,0.3) 100%),
+                url('../img/bg-grid.png') center bottom no-repeat;
+    background-size: 128px 128px, 100%, 100%, contain;
+    padding: 1px 0;
+
+    &__title {
+        @include section-title();
+    }
+
+    &__content {
+        @include fixed-width-limit();
+        @include site-gutter();
+
+        display: grid;
+        grid-gap: 1rem;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(8, calc(50vw - 1rem));
+
+        @include media-query(s) {
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(4, calc(25vw - 1rem));
+        }
+
+        @include media-query(m) {
+            grid-template-columns: repeat(5, 1fr);
+            grid-template-rows: repeat(4, calc(20vw - 1rem));
+        }
+
+        @include media-query(l) {
+            grid-template-columns: repeat(6, 1fr);
+            grid-template-rows: repeat(4, calc(16.666vw - 1rem));
+        }
+    }
+
+    &__tile {
+        position: relative;
+        grid-column: span 1;
+        grid-row: span 1;
+        cursor: pointer;
+        transition: all 150ms ease-in-out;
+
+        &:hover {
+            box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.3);
+            transform: scale(1.02);
+        }
+
+        &.onetwo {
+            @include media-query(l) {
+                grid-column: span 1;
+                grid-row: span 2;
+            }
+        }
+
+        &.twotwo {
+            @include media-query(m) {
+                grid-column: span 2;
+                grid-row: span 2;
+            }
+        }
+
+        &.twoone {
+            @include media-query(l) {
+                grid-column: span 2;
+                grid-row: span 1;
+            }
+        }
+    }
+
+    &__img {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        border-radius: 2px;
+    }
+
+    &__link {
+        @include fixed-width-limit();
+        @include site-gutter();
+        color: white;
+        width: 100%;
+        text-align: center;
+        padding: 5rem 0;
+        font-size: 1.5rem;
+    }
+
+}

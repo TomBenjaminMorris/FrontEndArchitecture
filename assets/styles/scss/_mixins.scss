@@ -1,0 +1,44 @@
+// Set site gutter limits to be responsive
+// -----------------------------------------------------------------------------
+@mixin site-gutter() {
+    padding-left: 10px;
+    padding-right: 10px;
+
+    @include media-query(m) {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+// section titles
+// -----------------------------------------------------------------------------
+@mixin section-title {
+    width: 100%;
+    text-align: center;
+    padding: 3rem 0;
+    font-size: 2.5rem;
+    letter-spacing: 0.2rem;
+    text-transform: uppercase;
+}
+
+// Media Queries
+// -----------------------------------------------------------------------------
+@mixin fixed-width-limit() {
+    max-width: $site-width;
+    margin: 0 auto;
+}
+
+@mixin media-query($media-query) {
+    @if $media-query == s {
+        @media only screen and (min-width:$s-start) { @content;}
+    }
+    @if $media-query == m {
+        @media only screen and (min-width:$m-start) { @content;}
+    }
+    @if $media-query == l {
+        @media only screen and (min-width:$l-start) { @content;}
+    }
+    @if $media-query == xl {
+        @media only screen and (min-width: $xl-start) { @content;}
+    }
+}

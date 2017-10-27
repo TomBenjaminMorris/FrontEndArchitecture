@@ -1,0 +1,124 @@
+.sbg-fa-modal {
+    padding: 1px 0 10rem;
+    background-image: linear-gradient(45deg, rgba(0, 128, 128, 0.25) 25%, rgba(123, 213, 227, 0.25) 50%, rgba(79, 255, 149, 0.25));
+
+    &__title {
+        @include section-title();
+    }
+
+    &__profile {
+        background-image: url('https://unsplash.it/801/800?random');
+        background-size: cover;
+        border-radius: 100%;
+        height: 12rem;
+        width: 12rem;
+        margin: 0 auto;
+        border: 3px solid darken($color--highlight, 30%);
+        box-shadow: 0 0 0 rgba($color--secondary, 0.4);
+        animation: pulse 4s infinite;
+
+        transition: all 150ms ease-in-out;
+        cursor: pointer;
+
+        &:hover {
+            transform: scale(1.02);
+        }
+
+        @keyframes pulse {
+          0% {
+            box-shadow: 0 0 0 0 rgba($color--secondary, 0.4);
+          }
+          20% {
+            box-shadow: 0 0 0 20px rgba($color--secondary, 0);
+          }
+          40% {
+              box-shadow: 0 0 0 0 rgba($color--secondary, 0);
+          }
+          100% {
+              box-shadow: 0 0 0 0 rgba($color--secondary, 0.4);
+          }
+        }
+    }
+
+    &__drop {
+        background: $color--dark;
+        border-radius: 50%;
+        width: 150vh;
+        height: 150vh;
+        position: absolute;
+        margin-left: -75vh;
+        margin-top: -75vh;
+        transition: transform 2s cubic-bezier(.25,1,.60,1), transform-origin 0s;
+        transform: scale(0.001);
+        transform-origin: 0 0;
+    }
+
+    &__content {
+        background: $color--dark;
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        opacity: 0;
+        z-index: 1;
+        transition: all 0.75s ease-in-out 0.5s;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 0 20px;
+
+        @include media-query(m) {
+            padding: 0 15rem;
+        }
+
+        p {
+            text-align: center;
+        }
+    }
+
+    &__img {
+        background-image: url('https://unsplash.it/801/800?random');
+        background-size: cover;
+        background-position: center;
+        width: 100%;
+        height: 12rem;
+        margin: 0 auto;
+    }
+
+    &__close.fa {
+        position: absolute;
+        top: 2rem;
+        right: 2rem;
+        color: $color--light;
+        font-size: 3rem;
+        cursor: pointer;
+    }
+
+    &__container {
+        color: $color--light;
+        display: none;
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 100;
+
+        &.active {
+
+            .sbg-fa-modal__drop {
+                transform-origin: 50%;
+                transform: scale(1);
+            }
+
+            .sbg-fa-modal__content {
+                opacity: 1;
+                transition: 0.5s ease-in-out 1.5s;
+            }
+        }
+    }
+
+}
